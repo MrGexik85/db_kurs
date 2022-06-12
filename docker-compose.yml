@@ -1,0 +1,48 @@
+version: "3"
+
+services:
+  db:
+    image: postgres:11
+    container_name: pgdb
+    hostname: database
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=semyon
+      
+  web:
+    build: .
+    container_name: backend-kurs
+    command: bash -c "python main.py"
+    restart: unless-stopped
+    volumes:
+      - .:/usr/src/app/
+    environment:
+      - PORT=5050
+      - DEBUG=True
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - DB_HOST=database
+      - DB_PORT=5432
+      - DB_NAME=semyon
+    ports:
+      - "3333:5050"
+    depends_on:
+      - db
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    restart: unless-stopped
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@mail.ru
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    ports:
+      - "5050:80"
+    links:
+      - "db:pgsql-server"
+    depends_on:
+      - db
