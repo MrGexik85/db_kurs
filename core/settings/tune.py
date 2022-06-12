@@ -1,8 +1,9 @@
 from fastapi import FastAPI
 from starlette.middleware.sessions import SessionMiddleware
+from v1 import authRouter
 
 def set_routers(app: FastAPI):
-    pass
+    app.include_router(authRouter)
 
 
 def use_session(app: FastAPI):
