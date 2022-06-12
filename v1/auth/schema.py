@@ -26,9 +26,9 @@ login_invalid_responses = responses_authenticate = {
         "content": { 
             "application/json": {
                 "examples": { 
-                    "wrong_email_or_password": {
-                        "summary": "Wrong email or/and password",
-                        "value": { "detail": "Wrong email or/and password" }
+                    "wrong_username_or_password": {
+                        "summary": "Wrong username or/and password",
+                        "value": { "detail": "Wrong username or/and password" }
                     }
                 }
             } 
@@ -42,9 +42,9 @@ register_invalid_responses = responses_authenticate = {
         "content": { 
             "application/json": {
                 "examples": { 
-                    "Username or email already exist": {
-                        "summary": "Username or email already exist",
-                        "value": { "detail": "Username or email already exist" }
+                    "Username already exist": {
+                        "summary": "Username already exist",
+                        "value": { "detail": "Username already exist" }
                     }
                 }
             } 
