@@ -7,7 +7,7 @@ class RequestRegisterSchema(BaseModel):
 
 
 class RequestLoginSchema(BaseModel):
-    username: EmailStr = Field(description='Никнейм пользователя', example="ivan228")
+    username: str = Field(description='Никнейм пользователя', example="ivan228")
     password: str = Field(description='Самый сложный пароль в мире', example='qwertyu')
 
 
@@ -16,6 +16,7 @@ class ResponseSuccess(BaseModel):
 
 
 class ResponseLoginSuccess(BaseModel):
+    id: int = Field(default=2)
     username: str = Field(default="superman")
     isAdmin: bool = Field(default=False)
 

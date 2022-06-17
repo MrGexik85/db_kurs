@@ -2,6 +2,7 @@ from fastapi import Request, HTTPException, status
 from sqlalchemy.orm import Session
 
 from v1.auth.schema import RequestLoginSchema, RequestRegisterSchema, ResponseLoginSuccess, ResponseSuccess
+from v1.user.schema import UserSession
 from models import User
 
 
@@ -24,7 +25,7 @@ async def login_service(db: Session, request: Request, loginBody: RequestLoginSc
         }
     })
 
-    return ResponseLoginSuccess(username=user.username, email=user.email, isAdmin=user.is_admin)
+    return ResponseLoginSuccess(id=user.id, username=user.username, isAdmin=user.is_admin)
 
 
 
@@ -45,7 +46,7 @@ async def register_service(db: Session, request: Request, registerBody: RequestR
         }
     })
 
-    return ResponseLoginSuccess(username=user.username, isAdmin=user.is_admin)
+    return ResponseLoginSuccess(id= user.id, username=user.username, isAdmin=user.is_admin)
 
 
 async def logout_service(db: Session, request: Request):
