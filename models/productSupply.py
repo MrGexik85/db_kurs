@@ -8,7 +8,7 @@ class ProductSupply(Base):
     __tablename__ = "product_supplies"
 
     id = Column(Integer, primary_key=True, index=True)
-    contractor_id = Column(Integer, ForeignKey('contractors.id', ondelete='CASCADE'), primary_key=True)
-    product_id = Column(Integer, ForeignKey('products.id', ondelete='CASCADE'), primary_key=True)
+    contractor_id = Column(Integer, ForeignKey('contractors.id', ondelete='CASCADE'))
+    product_id = Column(Integer, ForeignKey('products.id', ondelete='CASCADE'))
     amount = Column(Integer, nullable=False)
     date = Column(DateTime, nullable=False)
