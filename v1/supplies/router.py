@@ -16,7 +16,7 @@ router = APIRouter(prefix='/supplies', tags=['supplies'])
 
 @router.get(
     path='',
-    summary='поставки все товаров (+ фильтры по дате)',
+    summary='поставки всех товаров (+ фильтры по дате)',
     response_model=list[SupplyResponse],
     status_code=status.HTTP_200_OK
 )

@@ -74,6 +74,6 @@ async def create_supply_controller(db: Session, body: CreateSupply):
         db.commit()
     except Exception as e:
         print(e)
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail='Product id or contract id not exist')
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail='Product id or contract id not found')
 
     return ResponseSuccess()

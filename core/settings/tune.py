@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from starlette.middleware.sessions import SessionMiddleware
-from v1 import authRouter, productRouter, categoriesRouter, bankAccountRouter, storageRouter, suppliesRouter
+from v1 import authRouter, productRouter, categoriesRouter, bankAccountRouter, storageRouter, suppliesRouter, customersRouter, ordersRouter
 
 def set_routers(app: FastAPI):
     app.include_router(authRouter)
@@ -9,6 +9,8 @@ def set_routers(app: FastAPI):
     app.include_router(bankAccountRouter)
     app.include_router(storageRouter)
     app.include_router(suppliesRouter)
+    app.include_router(customersRouter)
+    app.include_router(ordersRouter)
 
 
 def use_session(app: FastAPI):
