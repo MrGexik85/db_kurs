@@ -73,7 +73,7 @@ async def get_product_by_id_controller(db: Session, id: int) -> ProductResponse:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail='Product not found')
     except Exception as e:
         print(e)
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail='Something wrong')
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail='Something wrong')
     
     sold = answ[8] if answ[8] else 0
     supply = answ[9] if answ[9] else 0
