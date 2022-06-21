@@ -5,4 +5,6 @@ from .bank_account.router import router as bankAccountRouter
 from .storage.router import router as storageRouter 
 from .supplies.router import router as suppliesRouter
 from .customers.router import router as customersRouter     
-from .orders.router import router as ordersRouter                                                                                                                     
+from .orders.router import router as ordersRouter 
+from .user.router import router as userRouter     
+from .contractors.router import router as contractorRouter                                                                                                               
