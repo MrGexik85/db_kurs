@@ -1,0 +1,4 @@
+order_id,order_number,order_date,order_note,delivery_terms,is_paid,id_deliver,customer_id,customer_title,customer_address,customer_phone,customer_first_name,customer_last_name,product_id,product_title,product_description,product_price,product_count,product_package,product_category
+1,12315234,2022-04-23 00:00:00,dwqgfd,fwegb,Оплачен,Доставлен,1,daseqw,asdqf,adavd,dqwfgs,fsqweq,12,AirPods Max,Полноразмерные беспроводные наушники,20000,3,Картон,инструменты
+1,12315234,2022-04-23 00:00:00,dwqgfd,fwegb,Оплачен,Доставлен,1,daseqw,asdqf,adavd,dqwfgs,fsqweq,12,AirPods Max,Полноразмерные беспроводные наушники,20000,6,Картон,инструменты
+13,51340115,2022-06-21 22:12:50.913862,Доставить до 5 июля,Самовывоз,Не оплачен,Не доставлен,1,daseqw,asdqf,adavd,dqwfgs,fsqweq,12,AirPods Max,Полноразмерные беспроводные наушники,20000,2,Картон,инструменты
