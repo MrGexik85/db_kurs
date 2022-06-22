@@ -18,8 +18,8 @@ router = APIRouter(prefix='/report', tags=['report'])
     summary='получить отчет по поставкам в виде csv файла (+ фильтры)',
 )
 async def get_report_supplies(
-    period_from: date | None = Query(default=None, description='От какого дня (можно не указывать эти фильтры, тогда покажет все поставки)', example='2022-05-20'),
-    period_to: date | None = Query(default=None, description='До какого дня', example='2022-05-25'),
+    period_from: date | None = Query(default=None, description='От какого дня (можно не указывать эти фильтры, тогда покажет все поставки)'),
+    period_to: date | None = Query(default=None, description='До какого дня'),
     user: UserSession = Depends(get_admin_user_from_session),
     db: Session = Depends(get_db)
 ):

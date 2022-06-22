@@ -1,0 +1,5 @@
+supply_id,contractor_id,contractor_title,product_id,product_title,amount,date
+1,1,daewq,12,AirPods Max,10,2022-01-23 10:31:31
+2,1,daewq,12,AirPods Max,40,2022-01-23 10:31:31
+3,1,daewq,15,New AirPods Max,20,2022-01-25 10:31:31
+4,1,daewq,12,AirPods Max,20,2022-03-25 14:00:00

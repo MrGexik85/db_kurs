@@ -8,7 +8,6 @@ import csv
 import uuid
 
 from v1.auth.schema import ResponseSuccess
-from v1.orders.schema import Order, Product, Customer, Category
 from v1.supplies.schema import SupplyResponse
 from v1.supplies.controller import get_supplies_controller
 from v1.orders.controller import get_orders_controller
@@ -18,23 +17,24 @@ async def get_report_supplies_controller(db: Session, date_from: date | None, da
     supplies = await get_supplies_controller(db, date_from, date_to)
 
     file_path = f'tmp/{uuid.uuid4()}.csv'
-    # with open(file_path, 'w', newline='') as csvfile:
-    #     field_names = ['user_id', 'username', 'email', 'name', 'product_id', 'product_name', 'price', 'amount', 'total', 'bought_at']
-    #     writer = csv.DictWriter(csvfile, fieldnames=field_names)
+    with open(file_path, 'w', newline='') as csvfile:
+        field_names = ['supply_id', 'contractor_id', 
+                        'contractor_title', 'product_id', 
+                        'product_title', 'amount', 
+                        'date']
+        writer = csv.DictWriter(csvfile, fieldnames=field_names)
 
-    #     writer.writeheader()
-        # for supply in supplies:
-        #     writer.writerow({
-        #         "user_id": order.user_id,
-        #         'username': order.user.username,
-        #         'email': order.user.email,
-        #         'product_id': order.product_id,
-        #         'product_name': order.product.name,
-        #         'price': order.product.price,
-        #         'amount': order.amount,
-        #         'total': order.product.price * order.amount,
-        #         'bought_at': order.date
-        #     })
+        writer.writeheader()
+        for supply in supplies:
+            writer.writerow({
+                'supply_id': supply.id, 
+                'contractor_id': supply.contractor.id, 
+                'contractor_title': supply.contractor.title, 
+                'product_id': supply.product.id, 
+                'product_title': supply.product.title, 
+                'amount': supply.amount, 
+                'date': supply.date
+            })
 
     return FileResponse(file_path, filename='report.csv', media_type='text/csv')
 
